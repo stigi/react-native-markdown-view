@@ -96,7 +96,7 @@ class MarkdownView extends Component {
     const initialRenderState = {onLinkPress: onLinkPress}
 
     return (
-      <View style={this.props.style}>
+      <View {...this.props}>
         {render(ast, initialRenderState)}
       </View>
     )
