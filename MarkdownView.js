@@ -84,7 +84,7 @@ class MarkdownView extends Component {
   }
 
   render() {
-    const {rules = {}, styles = {}, onLinkPress} = this.props
+    const {rules = {}, styles = {}, onLinkPress, ...rest} = this.props
 
     const mergedStyles = mergeStyles(DefaultStyles, styles)
     const mergedRules = mergeRules(SimpleMarkdown.defaultRules, simpleMarkdownRules(mergeRules(DefaultRules, rules), mergedStyles))
@@ -96,7 +96,7 @@ class MarkdownView extends Component {
     const initialRenderState = {onLinkPress: onLinkPress}
 
     return (
-      <View {...this.props}>
+      <View {...rest}>
         {render(ast, initialRenderState)}
       </View>
     )
